@@ -1,0 +1,49 @@
+{
+  "columns": [
+    { "id": "todo",  "title": "To Do",       "dotClass": "todo" },
+    { "id": "doing", "title": "In Progress", "dotClass": "doing" },
+    { "id": "done",  "title": "Done",        "dotClass": "done" }
+  ],
+  "subjects": [
+    "General",
+    "OOP (Java)",
+    "Data Structures",
+    "Database Management",
+    "Operating Systems",
+    "Networking",
+    "Web Development",
+    "PE / NSTP"
+  ],
+  "seedTasks": [
+    {
+      "title": "Finish Java Swing GUI lab activity",
+      "subject": "OOP (Java)",
+      "priority": "high",
+      "status": "doing"
+    },
+    {
+      "title": "Draw ERD for the enrollment system",
+      "subject": "Database Management",
+      "priority": "high",
+      "status": "todo"
+    },
+    {
+      "title": "Practice First-Fit and Best-Fit problems",
+      "subject": "Operating Systems",
+      "priority": "medium",
+      "status": "todo"
+    },
+    {
+      "title": "Subnetting worksheet chapters 4–5",
+      "subject": "Networking",
+      "priority": "medium",
+      "status": "doing"
+    },
+    {
+      "title": "Submit personal portfolio link",
+      "subject": "Web Development",
+      "priority": "low",
+      "status": "done"
+    }
+  ]
+}
