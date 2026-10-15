@@ -5,27 +5,7 @@
    ============================================================ */
 
 /* ---------- 1. Design tokens ---------- */
-:root {/* ---------- 13. Modal ---------- */
-/* ---------- 13. Modal ---------- */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: none;                 /* ← hidden by default */
-  place-items: center;
-  padding: 20px;
-  background: rgba(4, 8, 16, .78);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  opacity: 0;
-  transition: opacity .28s var(--ease);
-}
-
-/* Only when JavaScript adds .open does it appear */
-.modal-overlay.open {
-  display: grid;                 /* ← shown when opened */
-  opacity: 1;
-}
+:root {
   --navy-900: #070d18;
   --navy-800: #0b1220;
   --navy-700: #101a2e;
@@ -94,6 +74,12 @@ code {
 }
 
 ::selection { background: rgba(212, 175, 55, .3); }
+
+/* ============================================================
+   SAFETY NET — force the hidden attribute to always win.
+   This prevents invisible full-screen overlays from blocking clicks.
+   ============================================================ */
+[hidden] { display: none !important; }
 
 /* Focus ring for keyboard users */
 :focus-visible {
@@ -811,12 +797,16 @@ code {
   border-top: 1px solid var(--line-soft);
 }
 
-/* ---------- 13. Modal ---------- */
+/* ============================================================
+   13. Modal  — FIXED
+   Base state uses display: none so it never sits on top of
+   the page eating clicks. .open flips it on with a transition.
+   ============================================================ */
 .modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 200;
-  display: grid;
+  display: none;              /* hidden by default — no click stealing */
   place-items: center;
   padding: 20px;
   background: rgba(4, 8, 16, .78);
@@ -825,7 +815,10 @@ code {
   opacity: 0;
   transition: opacity .28s var(--ease);
 }
-.modal-overlay.open { opacity: 1; }
+.modal-overlay.open {
+  display: grid;              /* shown only when JS adds .open */
+  opacity: 1;
+}
 
 .modal {
   position: relative;
@@ -906,13 +899,26 @@ code {
 
 .modal-actions { display: flex; gap: .7rem; flex-wrap: wrap; }
 
-/* ---------- 14. Reveal on scroll ---------- */
+/* ============================================================
+   14. Reveal on scroll  — SAFE VERSION
+   Content is VISIBLE by default. JS adds .reveal--armed
+   shortly after load, which hides it, then IO reveals each
+   element as it scrolls into view. If JS fails → content
+   stays visible. Never blanks the page.
+   ============================================================ */
 .reveal {
-  opacity: 0;
-  transform: translateY(26px);
+  opacity: 1;
+  transform: none;
   transition: opacity .7s var(--ease), transform .7s var(--ease);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal--armed {
+  opacity: 0;
+  transform: translateY(26px);
+}
+.reveal--armed.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ---------- 15. Skeleton loaders ---------- */
 .skeleton-card {
@@ -985,5 +991,5 @@ code {
     transition-duration: .001ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal--armed { opacity: 1; transform: none; }
 }
