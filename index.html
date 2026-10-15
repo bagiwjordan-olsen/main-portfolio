@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diederich Olsen | 2nd-Year BSIT Student — King's College of the Philippines</title>
+  <meta name="description" content="Portfolio of Diederich Olsen, a 2nd-Year BSIT student at King's College of the Philippines. Java OOP, databases, data structures, networking and web development projects.">
+  <meta name="author" content="Diederich Olsen">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1220'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='14' font-weight='bold' fill='%23d4af37' text-anchor='middle'%3EDO%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- ============ SKIP LINK (accessibility) ============ -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark">DO</span>
+        <span class="brand-text">Diederich<span class="brand-accent">Olsen</span></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cta" href="mailto:diedericholsen49@gmail.com">Hire Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+
+        <div class="hero-text reveal">
+          <p class="hero-eyebrow">
+            <span class="dot"></span> Available for internships &amp; school projects
+          </p>
+
+          <h1 class="hero-name" id="heroName">Diederich Olsen</h1>
+
+          <h2 class="hero-role">
+            <span id="typewriter" class="typewriter"></span><span class="caret" aria-hidden="true"></span>
+          </h2>
+
+          <p class="hero-school">
+            <strong>2nd-Year BSIT Student</strong> @ King's College of the Philippines
+          </p>
+
+          <p class="hero-bio" id="heroBio">
+            I build clean, working software while studying the fundamentals —
+            Java OOP, relational databases, data structures, and web development.
+            I like solving real problems with simple, readable code.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View My Projects</a>
+            <a class="btn btn-outline" id="heroEmail" href="mailto:diedericholsen49@gmail.com">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7L4.4 6.2 4 6.5V18h16V6.5l-.4-.3L12 11Z"/></svg>
+              Email Me
+            </a>
+          </div>
+
+          <!-- ===== LIVE VISITOR COUNTER (JS + API) ===== -->
+          <div class="visitor-badge" id="visitorBadge" title="Live visitor counter">
+            <span class="pulse" aria-hidden="true"></span>
+            <span class="visitor-label">Live Visitors</span>
+            <span class="visitor-count" id="visitorCount">—</span>
+            <span class="visitor-note" id="counterNote">connecting…</span>
+          </div>
+        </div>
+
+        <!-- ===== 320 x 320 PROFILE FRAME ===== -->
+        <div class="hero-photo reveal">
+          <div class="profile-frame" aria-label="Profile picture frame, 320 by 320 pixels">
+            <img
+              src="assets/profile-placeholder.svg"
+              alt="Profile photo of Diederich Olsen"
+              width="320"
+              height="320"
+              id="profileImg">
+          </div>
+          <div class="photo-caption">
+            <span class="chip">BSIT</span>
+            <span class="chip">2nd Year</span>
+            <span class="chip gold">KCP</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">01 — About</span>
+          <h2 class="section-title">A student who likes <span class="accent">building things</span></h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3>Background</h3>
+            <p>
+              I'm a 2nd-year Bachelor of Science in Information Technology student at
+              <strong>King's College of the Philippines</strong>. I started with basic HTML in
+              senior high school, and now I'm studying object-oriented programming in Java,
+              database design, data structures, and computer networking.
+            </p>
+            <p>
+              Outside of class, I turn our lessons into small working projects. That habit is
+              what this portfolio is — eight tools I built to practice what we learn in school.
+            </p>
+          </div>
+
+          <div class="about-card reveal">
+            <h3>University Focus at KCP</h3>
+            <ul class="focus-list">
+              <li><span>Java OOP</span> — classes, inheritance, Swing GUI apps</li>
+              <li><span>Databases</span> — ERDs, SQL queries, MS Access</li>
+              <li><span>Data Structures</span> — sorting, searching, dynamic arrays</li>
+              <li><span>Operating Systems</span> — memory allocation algorithms</li>
+              <li><span>Networking</span> — IP addressing &amp; subnetting</li>
+              <li><span>Web Development</span> — HTML5, CSS3, Vanilla JS, JSON</li>
+            </ul>
+          </div>
+
+          <div class="about-card reveal">
+            <h3>Academic Goals</h3>
+            <p>
+              My goal is to graduate with a solid foundation in software development and
+              database management, then work as a junior developer while continuing to learn
+              modern frameworks on my own.
+            </p>
+            <p>
+              This year I'm focusing on writing <strong>cleaner code</strong>, understanding
+              <strong>why</strong> algorithms perform differently, and getting comfortable
+              explaining my work to other people.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">02 — Skills</span>
+          <h2 class="section-title">What I've learned so far</h2>
+          <p class="section-sub">Loaded dynamically from <code>data.json</code> using <code>fetch()</code>.</p>
+        </header>
+
+        <!-- Skills are injected here by script.js -->
+        <div class="skills-grid" id="skillsGrid" aria-live="polite">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">03 — Projects</span>
+          <h2 class="section-title">The <span class="accent">8 tools</span> I built</h2>
+          <p class="section-sub">
+            Every project below is a complete mini web app with its own HTML, CSS, JS and JSON files.
+            Click <em>Details</em> for a quick overview or <em>Launch App</em> to open it.
+          </p>
+        </header>
+
+        <!-- Project cards injected here by script.js -->
+        <div class="projects-grid" id="projectsGrid" aria-live="polite">
+          <div class="skeleton-card tall"></div>
+          <div class="skeleton-card tall"></div>
+          <div class="skeleton-card tall"></div>
+          <div class="skeleton-card tall"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-tag">04 — Contact</span>
+          <h2 class="section-title">Let's work together</h2>
+          <p class="section-sub">Open to internships, school collaborations, and freelance practice work.</p>
+        </header>
+
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="mailto:diedericholsen49@gmail.com">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7L4.4 6.2 4 6.5V18h16V6.5l-.4-.3L12 11Z"/></svg>
+            </div>
+            <h3>Email</h3>
+            <p id="contactEmail">diedericholsen49@gmail.com</p>
+            <span class="contact-hint">Usually replies within a day</span>
+          </a>
+
+          <a class="contact-card reveal" id="contactGithub" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            </div>
+            <h3>GitHub</h3>
+            <p id="contactGithubText">github.com/diedericholsen</p>
+            <span class="contact-hint">Source code for all 8 projects</span>
+          </a>
+
+          <div class="contact-card reveal">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            </div>
+            <h3>Location</h3>
+            <p id="contactLocation">Philippines</p>
+            <span class="contact-hint">Open to remote work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="footer-brand">Diederich Olsen</p>
+        <p class="footer-note">
+          BSIT — 2nd Year · King's College of the Philippines · <span id="year">2025</span>
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <!-- ===== SECOND VISITOR COUNTER BADGE (image-based, always visible) ===== -->
+        <a class="hits-badge"
+           href="https://hitscounter.dev/"
+           target="_blank" rel="noopener noreferrer"
+           title="Live visitor counter">
+          <img
+            src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fdiedericholsen.github.io%2Fportfolio&label=Portfolio+Visits&color=%23d4af37&style=flat-square"
+            alt="Live visitor counter badge"
+            height="20"
+            loading="lazy">
+        </a>
+        <a class="footer-link" href="mailto:diedericholsen49@gmail.com">diedericholsen49@gmail.com</a>
+      </div>
+    </div>
+    <p class="footer-copy">Built with vanilla HTML, CSS &amp; JavaScript. No frameworks, no build step.</p>
+  </footer>
+
+  <!-- ============ PROJECT DETAILS MODAL ============ -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">&times;</button>
+      <span class="modal-badge" id="modalBadge">01</span>
+      <h3 class="modal-title" id="modalTitle">Project title</h3>
+      <p class="modal-desc" id="modalDesc">Description</p>
+      <div class="modal-tags" id="modalTags"></div>
+      <ul class="modal-features" id="modalFeatures"></ul>
+      <div class="modal-actions">
+        <a class="btn btn-primary" id="modalLaunch" href="#">Launch App</a>
+        <button class="btn btn-outline" id="modalCancel" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

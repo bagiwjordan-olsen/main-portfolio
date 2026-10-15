@@ -1,0 +1,223 @@
+{
+  "profile": {
+    "name": "Diederich Olsen",
+    "roles": [
+      "2nd-Year BSIT Student",
+      "Java OOP Learner",
+      "Database Design Student",
+      "Web Developer in Training"
+    ],
+    "bio": "I build clean, working software while studying the fundamentals — Java OOP, relational databases, data structures, and web development. I like solving real problems with simple, readable code.",
+    "email": "diedericholsen49@gmail.com",
+    "github": "https://github.com/diedericholsen",
+    "githubText": "github.com/diedericholsen",
+    "location": "Philippines",
+    "school": "King's College of the Philippines"
+  },
+
+  "skills": [
+    {
+      "id": "java-oop",
+      "icon": "☕",
+      "title": "Java OOP & Swing",
+      "category": "Programming",
+      "level": 82,
+      "desc": "Classes, objects, inheritance, polymorphism, and desktop GUI apps built with Java Swing (JFrame, JButton, JTable).",
+      "tags": ["Classes", "Inheritance", "JFrame", "Event Handling"]
+    },
+    {
+      "id": "database",
+      "icon": "🗄️",
+      "title": "Relational Database Design",
+      "category": "Data",
+      "level": 78,
+      "desc": "Designing ERDs, normalizing tables, and writing SQL queries for SELECT, INSERT, UPDATE and DELETE in MS Access.",
+      "tags": ["ERD", "SQL", "Normalization", "MS Access"]
+    },
+    {
+      "id": "datastructures",
+      "icon": "🧩",
+      "title": "Data Structures & Algorithms",
+      "category": "Fundamentals",
+      "level": 74,
+      "desc": "Implementing sorting and searching algorithms, dynamic arrays, stacks, queues and linked lists from scratch.",
+      "tags": ["Sorting", "Searching", "Arrays", "Linked List"]
+    },
+    {
+      "id": "os",
+      "icon": "🖥️",
+      "title": "Operating System Concepts",
+      "category": "Systems",
+      "level": 70,
+      "desc": "Memory management simulation using First-Fit, Best-Fit and Worst-Fit allocation, plus basic process scheduling ideas.",
+      "tags": ["First-Fit", "Best-Fit", "Worst-Fit", "Memory"]
+    },
+    {
+      "id": "networking",
+      "icon": "🌐",
+      "title": "Networking & IP Subnetting",
+      "category": "Systems",
+      "level": 68,
+      "desc": "Calculating network and broadcast addresses, subnet masks, usable host ranges and CIDR notation from an IP input.",
+      "tags": ["IPv4", "CIDR", "Subnet Mask", "Broadcast"]
+    },
+    {
+      "id": "web",
+      "icon": "💻",
+      "title": "Web Fundamentals",
+      "category": "Web",
+      "level": 85,
+      "desc": "Building responsive layouts with semantic HTML5, CSS Flexbox and Grid, then adding behaviour with vanilla ES6 JavaScript.",
+      "tags": ["HTML5", "CSS Grid", "Flexbox", "DOM"]
+    },
+    {
+      "id": "json",
+      "icon": "📦",
+      "title": "JSON & Data Fetching",
+      "category": "Web",
+      "level": 80,
+      "desc": "Loading structured content with fetch(), parsing JSON, and rendering it dynamically into the DOM.",
+      "tags": ["fetch()", "JSON.parse", "async/await", "REST"]
+    },
+    {
+      "id": "git",
+      "icon": "🔧",
+      "title": "Git & GitHub Pages",
+      "category": "Tools",
+      "level": 72,
+      "desc": "Version control basics — commits, branches, pushing to GitHub — and deploying static sites with GitHub Pages.",
+      "tags": ["Git", "Commits", "Branches", "Deployment"]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": "app1",
+      "num": "01",
+      "icon": "📊",
+      "title": "Grade & GWA Calculator",
+      "short": "Compute your semester GWA with weighted units and instant pass/fail feedback.",
+      "path": "./app1/index.html",
+      "desc": "A calculator that takes your subjects, units and grades, then computes the General Weighted Average. It shows a pass or fail remark per subject and highlights whether you made the dean's list.",
+      "tags": ["JavaScript", "Arrays", "Math", "JSON"],
+      "features": [
+        "Add or remove subject rows dynamically",
+        "Weighted GWA computation using unit values",
+        "Pass / fail indicator based on a 3.00 passing grade",
+        "Color-coded remarks and a summary panel"
+      ]
+    },
+    {
+      "id": "app2",
+      "num": "02",
+      "icon": "🗃️",
+      "title": "SQL Query Playground",
+      "short": "Simulate SELECT, INSERT and UPDATE queries against sample JSON table records.",
+      "path": "./app2/index.html",
+      "desc": "An interactive simulator that parses simplified SQL statements and runs them against in-memory JSON tables. It shows the result set, affected rows, and a query history log.",
+      "tags": ["SQL", "Parsing", "JSON", "Regex"],
+      "features": [
+        "SELECT with WHERE, ORDER BY and LIMIT",
+        "INSERT INTO and UPDATE ... SET ... WHERE",
+        "Results rendered as a formatted table",
+        "Query history panel and sample query buttons"
+      ]
+    },
+    {
+      "id": "app3",
+      "num": "03",
+      "icon": "🧠",
+      "title": "OS Memory Allocation Visualizer",
+      "short": "See how First-Fit, Best-Fit and Worst-Fit place processes into memory blocks.",
+      "path": "./app3/index.html",
+      "desc": "A visualizer for the three classic contiguous memory allocation algorithms. It draws each memory block to scale and shows which process was placed where, plus the internal fragmentation left over.",
+      "tags": ["Operating Systems", "Algorithms", "Visualization"],
+      "features": [
+        "First-Fit, Best-Fit and Worst-Fit side by side",
+        "Proportional block bars with allocated process labels",
+        "Fragmentation and unallocated process report",
+        "Editable block and process size lists"
+      ]
+    },
+    {
+      "id": "app4",
+      "num": "04",
+      "icon": "☕",
+      "title": "Java OOP Syntax Reference",
+      "short": "A searchable directory of Java class, inheritance and Swing syntax with copy buttons.",
+      "path": "./app4/index.html",
+      "desc": "A study tool for Java OOP and Swing. It loads topics from JSON, lets you filter by category or search keywords, and copies any snippet to the clipboard with one click.",
+      "tags": ["Java", "OOP", "Swing", "Clipboard API"],
+      "features": [
+        "Live search across titles, descriptions and code",
+        "Category filter buttons",
+        "One-click copy-to-clipboard for every snippet",
+        "Syntax-highlighted code blocks"
+      ]
+    },
+    {
+      "id": "app5",
+      "num": "05",
+      "icon": "🌐",
+      "title": "IP Subnet & Network Calculator",
+      "short": "Enter an IP and CIDR to get the network, broadcast, mask and host range.",
+      "path": "./app5/index.html",
+      "desc": "A networking utility that takes an IPv4 address with CIDR notation and calculates the subnet mask, network address, broadcast address, first and last usable host, total hosts and the address class.",
+      "tags": ["Networking", "IPv4", "CIDR", "Bitwise"],
+      "features": [
+        "Validates IPv4 octets and CIDR range 0–32",
+        "Computes network, broadcast and wildcard mask",
+        "Shows usable host range and host count",
+        "Quick-reference CIDR cheat sheet table"
+      ]
+    },
+    {
+      "id": "app6",
+      "num": "06",
+      "icon": "📋",
+      "title": "Task & Assignment Kanban Board",
+      "short": "Organize schoolwork across To Do, In Progress and Done — saved in your browser.",
+      "path": "./app6/index.html",
+      "desc": "A drag-and-drop kanban board for assignments. Tasks persist in localStorage so your board is still there when you close the tab. Each card supports a subject tag and a priority level.",
+      "tags": ["LocalStorage", "Drag & Drop", "DOM", "State"],
+      "features": [
+        "Three columns: To Do, In Progress, Done",
+        "Drag cards between columns or use arrow buttons",
+        "Subject tag and priority level per task",
+        "All data persisted in localStorage"
+      ]
+    },
+    {
+      "id": "app7",
+      "num": "07",
+      "icon": "🎯",
+      "title": "Interactive Student Quiz Platform",
+      "short": "Timed multiple-choice quiz with score tracking and full answer review.",
+      "path": "./app7/index.html",
+      "desc": "A quiz application that reads its question bank from JSON. It runs a countdown timer, tracks your score, and gives a full answer review with explanations at the end.",
+      "tags": ["JSON", "Timer", "State Machine", "Quiz"],
+      "features": [
+        "Question bank loaded from data.json",
+        "Countdown timer with automatic submit",
+        "Progress bar and live score tracking",
+        "Answer review showing correct vs. chosen"
+      ]
+    },
+    {
+      "id": "app8",
+      "num": "08",
+      "icon": "🎬",
+      "title": "CapCut Asset Tracker & Timecode Sync",
+      "short": "Log clips, brightness settings and audio beat timestamps, then export to JSON.",
+      "path": "./app8/index.html",
+      "desc": "A helper tool for video editors. It logs each clip with its timecode, brightness and contrast settings, audio beat markers and notes, then renders a visual timeline and exports everything as JSON.",
+      "tags": ["Timecode", "Export JSON", "Timeline", "LocalStorage"],
+      "features": [
+        "Add clips with start time, duration and settings",
+        "Audio beat timestamp markers on a timeline",
+        "Automatic clip end-time calculation",
+        "Export the full project as a JSON file"
+      ]
+    }
+  ]
+}
