@@ -1,0 +1,60 @@
+{
+  "editor": "CapCut",
+  "defaultTimecodes": {
+    "start": "00:00:00",
+    "duration": "00:00:05"
+  },
+  "brightnessPresets": {
+    "neutral": 0,
+    "brighten": 15,
+    "cinematic": -10,
+    "highContrast": 25
+  },
+  "sampleClips": [
+    {
+      "name": "Opening Title Card",
+      "start": "00:00:00",
+      "duration": "00:00:04",
+      "brightness": 5,
+      "contrast": 10,
+      "beat": "00:00:02",
+      "notes": "Fade in from black, logo appears on the beat"
+    },
+    {
+      "name": "Campus Wide Shot",
+      "start": "00:00:04",
+      "duration": "00:00:07",
+      "brightness": 10,
+      "contrast": 5,
+      "beat": "00:00:08",
+      "notes": "Cut on beat, slight zoom in"
+    },
+    {
+      "name": "Interview — Dean",
+      "start": "00:00:11",
+      "duration": "00:00:22",
+      "brightness": -5,
+      "contrast": 15,
+      "beat": "",
+      "notes": "Lower thirds at 00:00:13, keep audio clean"
+    },
+    {
+      "name": "B-Roll: IT Lab",
+      "start": "00:00:33",
+      "duration": "00:00:09",
+      "brightness": 12,
+      "contrast": 8,
+      "beat": "00:00:36",
+      "notes": "Speed ramp into the beat drop"
+    },
+    {
+      "name": "Closing Credits",
+      "start": "00:00:42",
+      "duration": "00:00:06",
+      "brightness": 0,
+      "contrast": 0,
+      "beat": "00:00:45",
+      "notes": "Fade out with background music"
+    }
+  ]
+}
