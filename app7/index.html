@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Quiz Platform | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">🎯</div>
+    <div>
+      <h1>Interactive Student Quiz</h1>
+      <p class="sub" id="quizSubtitle">Test your IT fundamentals. 10 questions, 30 seconds each.</p>
+    </div>
+  </header>
+
+  <!-- ===== START SCREEN ===== -->
+  <section class="screen panel" id="startScreen">
+    <h2 class="screen-title" id="quizTitle">Loading…</h2>
+    <p class="screen-desc" id="quizDesc"></p>
+    <ul class="start-list" id="startList"></ul>
+    <button class="btn big" id="startBtn" type="button">▶ Start Quiz</button>
+  </section>
+
+  <!-- ===== QUIZ SCREEN ===== -->
+  <section class="screen" id="quizScreen" hidden>
+    <div class="quiz-bar">
+      <div class="bar-left">
+        <span class="q-counter" id="qCounter">Question 1 of 10</span>
+        <div class="progress"><span id="progressFill"></span></div>
+      </div>
+      <div class="timer" id="timer">30</div>
+    </div>
+
+    <div class="panel question-panel">
+      <span class="q-category" id="qCategory">Category</span>
+      <h2 class="q-text" id="qText">Question text</h2>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="quiz-actions">
+      <button class="btn ghost" id="quitBtn" type="button">Quit</button>
+      <button class="btn" id="nextBtn" type="button" disabled>Next →</button>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS SCREEN ===== -->
+  <section class="screen" id="resultScreen" hidden>
+    <div class="panel score-panel">
+      <div class="score-ring" id="scoreRing">
+        <span class="score-pct" id="scorePct">0%</span>
+      </div>
+      <h2 class="score-title" id="scoreTitle">Quiz Complete</h2>
+      <p class="score-line" id="scoreLine">You scored 0 out of 0</p>
+      <p class="score-verdict" id="scoreVerdict"></p>
+      <div class="score-actions">
+        <button class="btn" id="retryBtn" type="button">↺ Try Again</button>
+        <button class="btn ghost" id="reviewBtn" type="button">📋 Review Answers</button>
+      </div>
+    </div>
+
+    <div class="review" id="review" hidden></div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
