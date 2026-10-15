@@ -5,7 +5,27 @@
    ============================================================ */
 
 /* ---------- 1. Design tokens ---------- */
-:root {
+:root {/* ---------- 13. Modal ---------- */
+/* ---------- 13. Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;                 /* ← hidden by default */
+  place-items: center;
+  padding: 20px;
+  background: rgba(4, 8, 16, .78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity .28s var(--ease);
+}
+
+/* Only when JavaScript adds .open does it appear */
+.modal-overlay.open {
+  display: grid;                 /* ← shown when opened */
+  opacity: 1;
+}
   --navy-900: #070d18;
   --navy-800: #0b1220;
   --navy-700: #101a2e;
