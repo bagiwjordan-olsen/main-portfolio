@@ -34,7 +34,6 @@ function initNav() {
     toggle.setAttribute('aria-expanded', String(open));
   });
 
-  // Close the menu after choosing a link
   links.addEventListener('click', (e) => {
     if (e.target.closest('a')) {
       links.classList.remove('open');
@@ -42,7 +41,6 @@ function initNav() {
     }
   });
 
-  // Close when clicking outside
   document.addEventListener('click', (e) => {
     if (!links.classList.contains('open')) return;
     if (e.target.closest('.nav')) return;
@@ -66,31 +64,50 @@ function initHeaderScroll() {
 }
 
 /* ------------------------------------------------------------
-   3. Fade-in sections on scroll
+   3. Fade-in sections on scroll — SAFE VERSION
+   Content stays visible if anything goes wrong.
    ------------------------------------------------------------ */
 function initReveal() {
   const items = $$('.reveal');
   if (!items.length) return;
 
-  // Fallback for very old browsers
-  if (!('IntersectionObserver' in window)) {
-    items.forEach((el) => el.classList.add('visible'));
-    return;
-  }
+  // If the browser doesn't support IntersectionObserver,
+  // leave everything visible — no animation, no blanking.
+  if (!('IntersectionObserver' in window)) return;
+
+  // Hide only elements that are currently below the fold.
+  // Anything already in view stays visible (no flash on load).
+  items.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inViewport) el.classList.add('reveal--armed');
+  });
 
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, obs) => {
       entries.forEach((entry, i) => {
         if (!entry.isIntersecting) return;
-        // Small stagger so groups fade in nicely
         setTimeout(() => entry.target.classList.add('visible'), i * 70);
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
       });
     },
     { threshold: 0.12, rootMargin: '0px 0px -50px 0px' }
   );
 
   items.forEach((el) => observer.observe(el));
+
+  // Belt-and-suspenders: if for any reason IO never fires,
+  // un-hide everything in view after 1.5 seconds.
+  setTimeout(() => {
+    items.forEach((el) => {
+      if (!el.classList.contains('reveal--armed')) return;
+      if (el.classList.contains('visible')) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 1.4) {
+        el.classList.add('visible');
+      }
+    });
+  }, 1500);
 }
 
 /* ------------------------------------------------------------
@@ -100,7 +117,6 @@ function initTypewriter(roles) {
   const target = $('#typewriter');
   if (!target || !roles || !roles.length) return;
 
-  // Respect reduced-motion preference
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     target.textContent = roles[0];
     return;
@@ -178,7 +194,6 @@ function renderSkills(skills) {
     )
     .join('');
 
-  // Animate the progress bars after they enter the viewport
   requestAnimationFrame(() => {
     const fills = $$('.skill-fill', grid);
     if (!('IntersectionObserver' in window)) {
@@ -241,15 +256,19 @@ function renderProjects(projects) {
 }
 
 /* ------------------------------------------------------------
-   7. Project details modal
+   7. Project details modal — FIXED
+   Uses .open class instead of the hidden attribute so the
+   transition plays and the overlay never sits on top of
+   the page when closed.
    ------------------------------------------------------------ */
 let projectCache = [];
 
 function initModal() {
   const overlay = $('#modalOverlay');
+  if (!overlay) return;
+
   const closeBtn = $('#modalClose');
   const cancelBtn = $('#modalCancel');
-  if (!overlay) return;
 
   const openModal = (project) => {
     $('#modalBadge').textContent  = project.num;
@@ -266,20 +285,21 @@ function initModal() {
       .map((f) => `<li>${esc(f)}</li>`)
       .join('');
 
-    overlay.classList.add('open');   // <-- replaces overlay.hidden = false
-  document.body.style.overflow = 'hidden';
-  void overlay.offsetHeight;
-  closeBtn.focus();
+    // Make it visible in the same frame so the transition fires
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    void overlay.offsetHeight;      // force reflow
+    overlay.classList.add('open');
+    if (closeBtn) closeBtn.focus();
   };
 
   const closeModal = () => {
-  overlay.classList.remove('open');  // <-- replaces overlay.hidden = true
-  document.body.style.overflow = '';
-};
-
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    // Hide again after the fade completes
+    setTimeout(() => { overlay.hidden = true; }, 320);
   };
 
-  // Delegate clicks from the project grid
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-action="details"]');
     if (!btn) return;
@@ -287,11 +307,13 @@ function initModal() {
     if (project) openModal(project);
   });
 
-  closeBtn.addEventListener('click', closeModal);
-  cancelBtn.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
   });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
   });
@@ -299,9 +321,6 @@ function initModal() {
 
 /* ------------------------------------------------------------
    8. LIVE VISITOR COUNTER
-   Primary : api.counterapi.dev  (free, no key)
-   Fallback: localStorage counter so the badge is never blank
-   Badge   : hitscounter.dev image in the footer
    ------------------------------------------------------------ */
 async function initVisitorCounter() {
   const countEl = $('#visitorCount');
@@ -313,7 +332,6 @@ async function initVisitorCounter() {
   const ENDPOINT  = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`;
   const LOCAL_KEY = 'do_portfolio_visits';
 
-  // ---- 1. Try the live API first -------------------------------
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 6000);
@@ -327,23 +345,22 @@ async function initVisitorCounter() {
 
     if (typeof value === 'number' && value > 0) {
       countEl.textContent = value.toLocaleString();
-      noteEl.textContent  = 'live · counterapi.dev';
+      if (noteEl) noteEl.textContent = 'live · counterapi.dev';
       localStorage.setItem(LOCAL_KEY, String(value));
       return;
     }
     throw new Error('Unexpected counter payload');
   } catch (err) {
-    // Silent — we fall through to the local counter.
     console.warn('[visitor-counter] live API unavailable:', err.message);
   }
 
-  // ---- 2. Offline / blocked fallback ---------------------------
+  // Offline / blocked fallback
   let local = parseInt(localStorage.getItem(LOCAL_KEY) || '0', 10);
   local = Number.isFinite(local) ? local + 1 : 1;
   localStorage.setItem(LOCAL_KEY, String(local));
 
   countEl.textContent = local.toLocaleString();
-  noteEl.textContent  = 'local count';
+  if (noteEl) noteEl.textContent = 'local count';
 }
 
 /* ------------------------------------------------------------
@@ -361,7 +378,8 @@ function initFooterAndContact(profile) {
   const contactEmail = $('#contactEmail');
   if (contactEmail && profile.email) {
     contactEmail.textContent = profile.email;
-    contactEmail.closest('.contact-card').href = `mailto:${profile.email}`;
+    const card = contactEmail.closest('.contact-card');
+    if (card) card.href = `mailto:${profile.email}`;
   }
 
   const ghCard = $('#contactGithub');
@@ -383,27 +401,27 @@ function initFooterAndContact(profile) {
    10. Boot
    ------------------------------------------------------------ */
 async function init() {
-  initNav();
-  initHeaderScroll();
-  initModal();
+  // These three are wrapped in try/catch so one failure
+  // can never stop the rest of the page from working.
+  try { initNav(); }          catch (e) { console.warn('nav:', e); }
+  try { initHeaderScroll(); } catch (e) { console.warn('header:', e); }
+  try { initModal(); }        catch (e) { console.warn('modal:', e); }
 
-  // Visitor counter runs in parallel with the data fetch
-  initVisitorCounter();
+  // Visitor counter runs in parallel (fire-and-forget)
+  initVisitorCounter().catch(() => {});
 
+  // Load the JSON content
   try {
     const res = await fetch('./data.json');
     if (!res.ok) throw new Error('data.json not found (' + res.status + ')');
     const data = await res.json();
 
-    // Profile / contact
     initFooterAndContact(data.profile);
 
-    // Typewriter roles
     if (data.profile && Array.isArray(data.profile.roles)) {
       initTypewriter(data.profile.roles);
     }
 
-    // Skills + projects
     renderSkills(data.skills);
     renderProjects(data.projects);
     projectCache = Array.isArray(data.projects) ? data.projects : [];
@@ -418,7 +436,7 @@ async function init() {
     }
   }
 
-  // Reveal any static .reveal elements (hero, about, contact)
+  // Final safety pass — reveal everything in view.
   initReveal();
 }
 
