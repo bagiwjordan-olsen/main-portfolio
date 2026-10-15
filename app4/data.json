@@ -1,0 +1,95 @@
+{
+  "categories": [
+    "Classes & Objects",
+    "Inheritance",
+    "Methods",
+    "Swing GUI",
+    "Collections"
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "category": "Classes & Objects",
+      "title": "Class Declaration",
+      "desc": "The basic blueprint of an object in Java. Fields hold state, methods hold behaviour.",
+      "code": "public class Student {\n    // fields (state)\n    private String name;\n    private int yearLevel;\n\n    // constructor\n    public Student(String name, int yearLevel) {\n        this.name = name;\n        this.yearLevel = yearLevel;\n    }\n\n    // method (behaviour)\n    public String getInfo() {\n        return name + \" - Year \" + yearLevel;\n    }\n}"
+    },
+    {
+      "id": 2,
+      "category": "Classes & Objects",
+      "title": "Creating Objects",
+      "desc": "Use the new keyword to create an instance of a class and call its methods.",
+      "code": "public class Main {\n    public static void main(String[] args) {\n        Student s1 = new Student(\"Ana Reyes\", 2);\n        Student s2 = new Student(\"Mark Santos\", 2);\n\n        System.out.println(s1.getInfo());\n        System.out.println(s2.getInfo());\n    }\n}"
+    },
+    {
+      "id": 3,
+      "category": "Inheritance",
+      "title": "Extending a Class",
+      "desc": "Inheritance lets a subclass reuse fields and methods from a parent class using extends.",
+      "code": "// parent class\npublic class Person {\n    protected String name;\n\n    public Person(String name) {\n        this.name = name;\n    }\n\n    public void greet() {\n        System.out.println(\"Hello, \" + name);\n    }\n}\n\n// child class\npublic class Student extends Person {\n    private String course;\n\n    public Student(String name, String course) {\n        super(name);          // call parent constructor\n        this.course = course;\n    }\n\n    @Override\n    public void greet() {\n        System.out.println(\"Hi, I'm \" + name + \" from \" + course);\n    }\n}"
+    },
+    {
+      "id": 4,
+      "category": "Inheritance",
+      "title": "Polymorphism",
+      "desc": "One reference type can point to different subclass objects and call the correct overridden method.",
+      "code": "Person p1 = new Person(\"Mr. Cruz\");\nPerson p2 = new Student(\"Liza Cruz\", \"BSIT\");\n\np1.greet();  // Hello, Mr. Cruz\np2.greet();  // Hi, I'm Liza Cruz from BSIT"
+    },
+    {
+      "id": 5,
+      "category": "Methods",
+      "title": "Method Overloading",
+      "desc": "Multiple methods with the same name but different parameter lists.",
+      "code": "public class Calculator {\n\n    public int add(int a, int b) {\n        return a + b;\n    }\n\n    public double add(double a, double b) {\n        return a + b;\n    }\n\n    public int add(int a, int b, int c) {\n        return a + b + c;\n    }\n}"
+    },
+    {
+      "id": 6,
+      "category": "Methods",
+      "title": "Static Methods & Fields",
+      "desc": "Static members belong to the class itself, not to any single object.",
+      "code": "public class Counter {\n    private static int count = 0;\n\n    public static void increment() {\n        count++;\n    }\n\n    public static int getCount() {\n        return count;\n    }\n}\n\n// usage\nCounter.increment();\nCounter.increment();\nSystem.out.println(Counter.getCount());  // 2"
+    },
+    {
+      "id": 7,
+      "category": "Swing GUI",
+      "title": "Basic JFrame Window",
+      "desc": "The simplest Swing window with a title, size and close operation.",
+      "code": "import javax.swing.JFrame;\n\npublic class MyWindow {\n    public static void main(String[] args) {\n        JFrame frame = new JFrame(\"My First Swing App\");\n        frame.setSize(400, 300);\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        frame.setLocationRelativeTo(null); // center on screen\n        frame.setVisible(true);\n    }\n}"
+    },
+    {
+      "id": 8,
+      "category": "Swing GUI",
+      "title": "Button with ActionListener",
+      "desc": "Wire a JButton to an ActionListener so it responds to clicks.",
+      "code": "import javax.swing.*;\nimport java.awt.*;\nimport java.awt.event.*;\n\npublic class ButtonDemo {\n    public static void main(String[] args) {\n        JFrame frame = new JFrame(\"Button Demo\");\n        frame.setLayout(new FlowLayout());\n\n        JLabel label = new JLabel(\"Click the button\");\n        JButton button = new JButton(\"Click Me\");\n\n        button.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent e) {\n                label.setText(\"Button was clicked!\");\n            }\n        });\n\n        frame.add(label);\n        frame.add(button);\n        frame.setSize(300, 150);\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        frame.setVisible(true);\n    }\n}"
+    },
+    {
+      "id": 9,
+      "category": "Swing GUI",
+      "title": "Grid Layout with JTextField",
+      "desc": "Use GridLayout to arrange input fields and labels in a neat form.",
+      "code": "import javax.swing.*;\nimport java.awt.*;\n\npublic class FormDemo {\n    public static void main(String[] args) {\n        JFrame frame = new JFrame(\"Student Form\");\n        frame.setLayout(new GridLayout(3, 2, 8, 8));\n\n        frame.add(new JLabel(\"Name:\"));\n        frame.add(new JTextField(15));\n\n        frame.add(new JLabel(\"Course:\"));\n        frame.add(new JTextField(15));\n\n        frame.add(new JLabel(\"Year:\"));\n        frame.add(new JTextField(5));\n\n        frame.setSize(340, 180);\n        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\n        frame.setVisible(true);\n    }\n}"
+    },
+    {
+      "id": 10,
+      "category": "Collections",
+      "title": "ArrayList Basics",
+      "desc": "A resizable array from java.util. The go-to collection for most student projects.",
+      "code": "import java.util.ArrayList;\n\npublic class ListDemo {\n    public static void main(String[] args) {\n        ArrayList<String> subjects = new ArrayList<>();\n\n        subjects.add(\"OOP\");\n        subjects.add(\"Data Structures\");\n        subjects.add(\"Databases\");\n\n        System.out.println(subjects.size());     // 3\n        System.out.println(subjects.get(0));     // OOP\n\n        subjects.remove(\"OOP\");\n\n        for (String s : subjects) {\n            System.out.println(s);\n        }\n    }\n}"
+    },
+    {
+      "id": 11,
+      "category": "Collections",
+      "title": "HashMap Key-Value Pairs",
+      "desc": "Store data as key → value pairs and look it up quickly by key.",
+      "code": "import java.util.HashMap;\n\npublic class MapDemo {\n    public static void main(String[] args) {\n        HashMap<String, Double> grades = new HashMap<>();\n\n        grades.put(\"OOP\", 1.50);\n        grades.put(\"Data Structures\", 1.75);\n        grades.put(\"Databases\", 1.25);\n\n        System.out.println(grades.get(\"OOP\"));   // 1.5\n\n        for (String key : grades.keySet()) {\n            System.out.println(key + \" = \" + grades.get(key));\n        }\n    }\n}"
+    },
+    {
+      "id": 12,
+      "category": "Methods",
+      "title": "Try-Catch Exception Handling",
+      "desc": "Catch runtime errors so your program doesn't crash on bad input.",
+      "code": "import java.util.Scanner;\n\npublic class SafeInput {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n\n        try {\n            System.out.print(\"Enter a number: \");\n            int n = Integer.parseInt(sc.nextLine());\n            System.out.println(\"You entered: \" + n);\n        } catch (NumberFormatException e) {\n            System.out.println(\"That was not a valid number.\");\n        } finally {\n            sc.close();\n        }\n    }\n}"
+    }
+  ]
+}
