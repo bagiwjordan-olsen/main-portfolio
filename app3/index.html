@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OS Memory Allocation Visualizer | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">🧠</div>
+    <div>
+      <h1>OS Memory Allocation Visualizer</h1>
+      <p class="sub">Compare First-Fit, Best-Fit and Worst-Fit placement side by side.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="two-col">
+      <div>
+        <h2 class="panel-title">Memory Blocks</h2>
+        <div id="blocks"></div>
+      </div>
+      <div>
+        <h2 class="panel-title">Processes</h2>
+        <div id="processes"></div>
+      </div>
+    </div>
+    <div class="panel-actions">
+      <button class="btn" id="runBtn" type="button">▶ Run Allocation</button>
+      <button class="btn ghost" id="resetBtn" type="button">↺ Reset</button>
+    </div>
+  </section>
+
+  <div id="output" class="output">
+    <p class="empty">Press "Run Allocation" to visualize the three algorithms.</p>
+  </div>
+
+  <section class="panel legend">
+    <h2 class="panel-title">Legend</h2>
+    <div class="legend-row">
+      <span class="swatch free"></span> Free space (fragmentation)
+      <span class="swatch used"></span> Allocated to a process
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
