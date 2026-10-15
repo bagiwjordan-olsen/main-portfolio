@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CapCut Asset Tracker &amp; Timecode Sync | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">🎬</div>
+    <div>
+      <h1>CapCut Asset Tracker &amp; Timecode Sync</h1>
+      <p class="sub">Log clips, brightness settings and audio beat markers. Export everything as JSON.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="lbl" for="projectName">Project Name</label>
+    <input type="text" id="projectName" placeholder="e.g. IT Week Vlog 2025" value="Untitled Project">
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title">Add a Clip</h2>
+    <div class="form-grid">
+      <div class="field">
+        <label class="lbl" for="clipName">Clip Name</label>
+        <input type="text" id="clipName" placeholder="Opening shot">
+      </div>
+      <div class="field">
+        <label class="lbl" for="clipStart">Start Time</label>
+        <input type="text" id="clipStart" placeholder="00:00:00" value="00:00:00">
+      </div>
+      <div class="field">
+        <label class="lbl" for="clipDuration">Duration</label>
+        <input type="text" id="clipDuration" placeholder="00:00:05" value="00:00:05">
+      </div>
+      <div class="field">
+        <label class="lbl" for="clipBrightness">Brightness</label>
+        <input type="range" id="clipBrightness" min="-100" max="100" value="0" step="5">
+        <span class="range-val" id="brightVal">0</span>
+      </div>
+      <div class="field">
+        <label class="lbl" for="clipContrast">Contrast</label>
+        <input type="range" id="clipContrast" min="-100" max="100" value="0" step="5">
+        <span class="range-val" id="contrastVal">0</span>
+      </div>
+      <div class="field">
+        <label class="lbl" for="clipBeat">Audio Beat Timestamp</label>
+        <input type="text" id="clipBeat" placeholder="00:00:03">
+      </div>
+      <div class="field wide">
+        <label class="lbl" for="clipNotes">Notes</label>
+        <input type="text" id="clipNotes" placeholder="Cut on the beat, add transition">
+      </div>
+    </div>
+    <div class="panel-actions">
+      <button class="btn" id="addClipBtn" type="button">+ Add Clip</button>
+      <button class="btn ghost" id="loadSampleBtn" type="button">Load Sample Project</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="result-head">
+      <h2 class="panel-title">Timeline</h2>
+      <span class="rows-badge" id="clipCount">0 clips</span>
+    </div>
+    <div class="timeline" id="timeline">
+      <p class="empty">No clips yet. Add one above to build your timeline.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="result-head">
+      <h2 class="panel-title">Clip Details</h2>
+      <div class="head-actions">
+        <button class="btn ghost small" id="exportBtn" type="button">⬇ Export JSON</button>
+        <button class="btn ghost small danger" id="clearBtn" type="button">Clear All</button>
+      </div>
+    </div>
+    <div class="table-scroll" id="tableBox">
+      <p class="empty">Nothing to show yet.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="beatPanel" hidden>
+    <h2 class="panel-title">Audio Beat Sync Points</h2>
+    <div class="beats" id="beats"></div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
