@@ -1,0 +1,108 @@
+{
+  "quiz": {
+    "title": "IT Fundamentals Quiz",
+    "description": "A 10-question review covering Java OOP, databases, data structures, operating systems and networking.",
+    "timePerQuestion": 30
+  },
+  "questions": [
+    {
+      "category": "Java OOP",
+      "question": "Which Java keyword is used to create an object from a class?",
+      "options": ["class", "new", "this", "static"],
+      "answer": 1,
+      "explanation": "The 'new' keyword allocates memory and calls the constructor to create an object."
+    },
+    {
+      "category": "Java OOP",
+      "question": "What does the 'extends' keyword do in Java?",
+      "options": [
+        "Imports a package",
+        "Creates a new method",
+        "Allows a class to inherit from another class",
+        "Declares a constant"
+      ],
+      "answer": 2,
+      "explanation": "'extends' establishes an inheritance relationship so the subclass inherits fields and methods from the parent."
+    },
+    {
+      "category": "Java Swing",
+      "question": "Which Swing method makes a JFrame visible on screen?",
+      "options": ["frame.show()", "frame.display()", "frame.setVisible(true)", "frame.open()"],
+      "answer": 2,
+      "explanation": "setVisible(true) is the standard modern way to display a Swing window."
+    },
+    {
+      "category": "Databases",
+      "question": "Which SQL statement retrieves data from a table?",
+      "options": ["GET", "SELECT", "FETCH", "PULL"],
+      "answer": 1,
+      "explanation": "SELECT is the SQL statement used to query and retrieve rows from a table."
+    },
+    {
+      "category": "Databases",
+      "question": "In an ERD, what does a primary key do?",
+      "options": [
+        "Links two tables together",
+        "Uniquely identifies each record in a table",
+        "Stores the largest value in a column",
+        "Encrypts the table data"
+      ],
+      "answer": 1,
+      "explanation": "A primary key uniquely identifies each row and cannot contain NULL or duplicate values."
+    },
+    {
+      "category": "Data Structures",
+      "question": "Which sorting algorithm repeatedly swaps adjacent elements that are out of order?",
+      "options": ["Merge Sort", "Quick Sort", "Bubble Sort", "Selection Sort"],
+      "answer": 2,
+      "explanation": "Bubble Sort compares adjacent pairs and swaps them until the array is sorted."
+    },
+    {
+      "category": "Data Structures",
+      "question": "What is the average time complexity of Binary Search on a sorted array?",
+      "options": ["O(n)", "O(n²)", "O(log n)", "O(1)"],
+      "answer": 2,
+      "explanation": "Binary Search halves the search space each step, giving O(log n) average time."
+    },
+    {
+      "category": "Operating Systems",
+      "question": "In First-Fit memory allocation, where is a process placed?",
+      "options": [
+        "In the smallest block that fits",
+        "In the largest available block",
+        "In the first block big enough for it",
+        "Always at the end of memory"
+      ],
+      "answer": 2,
+      "explanation": "First-Fit scans from the start and uses the first block that is large enough."
+    },
+    {
+      "category": "Operating Systems",
+      "question": "Which memory allocation method leaves the smallest leftover fragment?",
+      "options": ["First-Fit", "Best-Fit", "Worst-Fit", "Random-Fit"],
+      "answer": 1,
+      "explanation": "Best-Fit chooses the tightest fitting block, which minimises leftover space but can create many tiny fragments."
+    },
+    {
+      "category": "Networking",
+      "question": "How many usable host addresses are in a /24 subnet?",
+      "options": ["256", "254", "255", "252"],
+      "answer": 1,
+      "explanation": "A /24 has 256 total addresses. Subtracting the network and broadcast addresses leaves 254 usable hosts."
+    },
+    {
+      "category": "Networking",
+      "question": "What is the subnet mask for a /26 network?",
+      "options": ["255.255.255.0", "255.255.255.128", "255.255.255.192", "255.255.255.224"],
+      "answer": 2,
+      "explanation": "/26 means 26 network bits set, which gives 255.255.255.192."
+    },
+    {
+      "category": "Web Development",
+      "question": "Which JavaScript method converts a JSON string into an object?",
+      "options": ["JSON.stringify()", "JSON.parse()", "JSON.toObject()", "JSON.decode()"],
+      "answer": 1,
+      "explanation": "JSON.parse() converts a JSON-formatted string into a JavaScript object."
+    }
+  ]
+}
