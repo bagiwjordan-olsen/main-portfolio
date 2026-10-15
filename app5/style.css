@@ -1,0 +1,93 @@
+:root{
+  --bg:#0b1220;--panel:#121d31;--panel-2:#16233a;--line:#243352;
+  --text:#e9eefb;--soft:#c3cee3;--muted:#8b9cb8;
+  --gold:#d4af37;--blue:#4b7bec;--ok:#3fb27f;--bad:#e0605e;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  background:radial-gradient(900px 480px at 10% -10%,#16233a,transparent 60%),var(--bg);
+  color:var(--text);min-height:100vh;padding:28px 18px 60px;line-height:1.55;
+}
+.wrap{max-width:940px;margin:0 auto}
+
+.back{display:inline-block;font-size:.85rem;color:var(--muted);margin-bottom:22px;transition:color .3s var(--ease)}
+.back:hover{color:var(--gold)}
+
+.app-head{display:flex;gap:16px;align-items:center;margin-bottom:26px}
+.app-icon{
+  display:grid;place-items:center;width:58px;height:58px;font-size:1.7rem;flex-shrink:0;
+  border-radius:16px;background:rgba(75,123,236,.12);border:1px solid rgba(75,123,236,.3);
+}
+.app-head h1{font-size:1.45rem;letter-spacing:-.02em}
+.sub{color:var(--muted);font-size:.92rem;margin:0}
+
+.panel{
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px;
+}
+.panel-title{font-size:.94rem;color:var(--gold);margin-bottom:14px}
+
+.lbl{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:9px}
+
+.input-row{display:flex;gap:10px;flex-wrap:wrap}
+input[type=text]{
+  flex:1;min-width:220px;padding:.72rem .95rem;border-radius:10px;font-size:.96rem;
+  font-family:"Consolas",monospace;background:#0d1728;border:1px solid var(--line);color:var(--text);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease);
+}
+input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(75,123,236,.18)}
+input::placeholder{color:#4d5c75}
+
+.btn{
+  padding:.72rem 1.4rem;border-radius:10px;font-size:.9rem;font-weight:650;cursor:pointer;
+  border:1px solid transparent;background:linear-gradient(135deg,var(--gold),#b8912a);color:#14100a;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(212,175,55,.3)}
+
+.err{
+  margin-top:12px;padding:10px 14px;border-radius:9px;font-size:.85rem;
+  background:rgba(224,96,94,.1);color:var(--bad);border:1px solid rgba(224,96,94,.3);
+}
+
+.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.quick button{
+  font-family:"Consolas",monospace;font-size:.76rem;padding:.32rem .75rem;border-radius:7px;
+  background:rgba(75,123,236,.09);border:1px solid rgba(75,123,236,.25);color:#8fb4ff;cursor:pointer;
+  transition:background .25s var(--ease),transform .25s var(--ease);
+}
+.quick button:hover{background:rgba(75,123,236,.2);transform:translateY(-2px)}
+
+.results{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:20px;
+}
+.result-card{
+  background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line);border-radius:13px;padding:16px 18px;
+  animation:fadeUp .35s var(--ease);
+  transition:transform .3s var(--ease),border-color .3s var(--ease);
+}
+.result-card:hover{transform:translateY(-4px);border-color:rgba(75,123,236,.45)}
+.result-card.highlight{border-color:rgba(212,175,55,.4);background:linear-gradient(160deg,rgba(212,175,55,.08),var(--panel))}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.r-label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+.r-value{font-family:"Consolas",monospace;font-size:1.05rem;font-weight:700;color:var(--text);word-break:break-all}
+.r-value.gold{color:var(--gold);font-size:1.2rem}
+.r-value.small{font-size:.86rem}
+.r-value.mono{font-size:.74rem;color:var(--blue);line-height:1.6}
+
+.table-scroll{overflow-x:auto;border-radius:10px;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:.84rem;min-width:460px}
+th{
+  background:rgba(75,123,236,.1);color:var(--blue);text-align:left;padding:10px 14px;
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;
+  border-bottom:1px solid var(--line);white-space:nowrap;
+}
+td{padding:9px 14px;border-bottom:1px solid rgba(36,51,82,.55);color:var(--soft);font-family:"Consolas",monospace}
+tbody tr:hover{background:rgba(75,123,236,.06)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.active-row{background:rgba(212,175,55,.1)}
+tbody tr.active-row td{color:var(--gold)}
