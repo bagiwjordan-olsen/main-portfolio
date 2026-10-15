@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Subnet Calculator | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">🌐</div>
+    <div>
+      <h1>IP Subnet &amp; Network Calculator</h1>
+      <p class="sub">Enter an IPv4 address with CIDR to get the mask, network and host range.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="lbl" for="ipInput">IPv4 Address / CIDR</label>
+    <div class="input-row">
+      <input type="text" id="ipInput" placeholder="192.168.1.10/24" autocomplete="off" spellcheck="false">
+      <button class="btn" id="calcBtn" type="button">Calculate</button>
+    </div>
+    <p class="err" id="err" hidden></p>
+    <div class="quick" id="quick"></div>
+  </section>
+
+  <section class="results" id="results" hidden>
+    <div class="result-card highlight">
+      <span class="r-label">Network Address</span>
+      <span class="r-value gold" id="rNetwork">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Broadcast Address</span>
+      <span class="r-value" id="rBroadcast">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Subnet Mask</span>
+      <span class="r-value" id="rMask">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Wildcard Mask</span>
+      <span class="r-value" id="rWildcard">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Usable Host Range</span>
+      <span class="r-value small" id="rRange">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Total / Usable Hosts</span>
+      <span class="r-value" id="rHosts">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">CIDR Notation</span>
+      <span class="r-value" id="rCidr">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Address Class</span>
+      <span class="r-value" id="rClass">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">IP Type</span>
+      <span class="r-value" id="rType">—</span>
+    </div>
+    <div class="result-card">
+      <span class="r-label">Binary Subnet Mask</span>
+      <span class="r-value small mono" id="rBinary">—</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title">CIDR Quick Reference</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>CIDR</th><th>Subnet Mask</th><th>Total Addresses</th><th>Usable Hosts</th></tr>
+        </thead>
+        <tbody id="refBody"></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
