@@ -1,0 +1,26 @@
+{
+  "tables": {
+    "students": [
+      { "id": 1, "name": "Ana Reyes",     "course": "BSIT", "year": 2, "gwa": 1.50 },
+      { "id": 2, "name": "Mark Santos",   "course": "BSIT", "year": 2, "gwa": 2.10 },
+      { "id": 3, "name": "Liza Cruz",     "course": "BSIT", "year": 1, "gwa": 1.75 },
+      { "id": 4, "name": "John Dela Cruz","course": "BSCS", "year": 3, "gwa": 1.90 },
+      { "id": 5, "name": "Paolo Mendoza", "course": "BSIT", "year": 2, "gwa": 2.45 }
+    ],
+    "subjects": [
+      { "code": "IT201", "title": "Object-Oriented Programming", "units": 3, "instructor": "Prof. Bautista" },
+      { "code": "IT202", "title": "Data Structures & Algorithms", "units": 3, "instructor": "Prof. Lim" },
+      { "code": "IT203", "title": "Database Management 1",       "units": 3, "instructor": "Prof. Garcia" },
+      { "code": "IT204", "title": "Operating Systems",           "units": 3, "instructor": "Prof. Tan" }
+    ]
+  },
+  "examples": [
+    "SELECT * FROM students",
+    "SELECT name, gwa FROM students WHERE year = 2",
+    "SELECT name, gwa FROM students ORDER BY gwa ASC LIMIT 3",
+    "SELECT * FROM students WHERE course = 'BSIT'",
+    "INSERT INTO students (name, course, year, gwa) VALUES ('Nico Villar', 'BSIT', 2, 1.85)",
+    "UPDATE students SET gwa = 1.40 WHERE id = 1",
+    "DELETE FROM students WHERE id = 5"
+  ]
+}
