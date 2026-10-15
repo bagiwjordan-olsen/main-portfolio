@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade &amp; GWA Calculator | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">📊</div>
+    <div>
+      <h1>Grade &amp; GWA Calculator</h1>
+      <p class="sub">Add your subjects, units and grades to compute your General Weighted Average.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="row-head">
+      <span>Subject</span><span>Units</span><span>Grade</span><span></span>
+    </div>
+    <div id="rows"></div>
+
+    <div class="panel-actions">
+      <button class="btn" id="addRow" type="button">+ Add Subject</button>
+      <button class="btn ghost" id="loadSample" type="button">Load Sample</button>
+      <button class="btn ghost" id="clearAll" type="button">Clear</button>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="stat">
+      <span class="stat-label">Total Units</span>
+      <span class="stat-value" id="totalUnits">0</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">GWA</span>
+      <span class="stat-value gold" id="gwa">—</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Status</span>
+      <span class="stat-value" id="status">—</span>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title">Subject Breakdown</h2>
+    <div id="breakdown" class="breakdown">
+      <p class="empty">No subjects yet. Add one above to see the breakdown.</p>
+    </div>
+  </section>
+
+  <p class="note" id="scaleNote"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
