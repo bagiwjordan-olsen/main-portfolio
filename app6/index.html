@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment Kanban Board | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">📋</div>
+    <div>
+      <h1>Task &amp; Assignment Kanban Board</h1>
+      <p class="sub">Drag cards between columns. Everything is saved in your browser.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <div class="add-row">
+      <input type="text" id="taskInput" placeholder="New assignment or task…" autocomplete="off">
+      <select id="subjectSelect" aria-label="Subject"></select>
+      <select id="prioritySelect" aria-label="Priority">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button class="btn" id="addBtn" type="button">+ Add</button>
+    </div>
+    <div class="board-meta">
+      <span id="stats"></span>
+      <button class="link-btn" id="clearBtn" type="button">Clear all tasks</button>
+    </div>
+  </section>
+
+  <div class="board" id="board"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
