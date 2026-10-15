@@ -266,20 +266,17 @@ function initModal() {
       .map((f) => `<li>${esc(f)}</li>`)
       .join('');
 
-    overlay.hidden = false;
-    document.body.style.overflow = 'hidden';
-    // Force a reflow so the transition plays
-    void overlay.offsetHeight;
-    overlay.classList.add('open');
-    closeBtn.focus();
+    overlay.classList.add('open');   // <-- replaces overlay.hidden = false
+  document.body.style.overflow = 'hidden';
+  void overlay.offsetHeight;
+  closeBtn.focus();
   };
 
   const closeModal = () => {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => {
-      overlay.hidden = true;
-    }, 300);
+  overlay.classList.remove('open');  // <-- replaces overlay.hidden = true
+  document.body.style.overflow = '';
+};
+
   };
 
   // Delegate clicks from the project grid
