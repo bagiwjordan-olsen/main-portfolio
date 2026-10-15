@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Query Playground | Diederich Olsen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back" href="../index.html">← Back to Portfolio</a>
+
+  <header class="app-head">
+    <div class="app-icon">🗃️</div>
+    <div>
+      <h1>SQL Query Playground</h1>
+      <p class="sub">Run simplified SELECT, INSERT and UPDATE queries against JSON tables.</p>
+    </div>
+  </header>
+
+  <section class="panel">
+    <label class="lbl" for="sqlInput">Write your query</label>
+    <textarea id="sqlInput" spellcheck="false" placeholder="SELECT * FROM students WHERE year = 2"></textarea>
+    <div class="panel-actions">
+      <button class="btn" id="runBtn" type="button">▶ Run Query</button>
+      <button class="btn ghost" id="resetBtn" type="button">↺ Reset Tables</button>
+    </div>
+    <div class="samples" id="samples"></div>
+  </section>
+
+  <section class="panel">
+    <div class="result-head">
+      <h2 class="panel-title" id="resultTitle">Result</h2>
+      <span class="rows-badge" id="rowsBadge"></span>
+    </div>
+    <div class="table-scroll" id="resultBox">
+      <p class="empty">Run a query to see the result here.</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="panel-title">Query History</h2>
+    <ul class="history" id="history">
+      <li class="empty">No queries yet.</li>
+    </ul>
+  </section>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
